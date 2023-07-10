@@ -2,7 +2,7 @@ from fastapi import FastAPI, Depends
 from starlette.requests import Request
 import uvicorn
 
-from routers.users import users_router
+from routers.user import users_router
 from fastapi.middleware.cors import CORSMiddleware
 
 # from app.api.api_v1.routers.auth import auth_router
@@ -28,7 +28,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(users_router, prefix="/users", tags=["users"])
+app.include_router(users_router, tags=["users"])
 
 if __name__ == '__main__':
     uvicorn.run(app, host="0.0.0.0", port=8000)
